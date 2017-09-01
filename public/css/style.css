@@ -19,12 +19,14 @@ header.masthead {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    height: 40%;
 }
 
 header.masthead > .overlay {
     padding: 5rem 0;
     text-align: center;
     background: rgba(0, 0, 0, 0.6);
+
 }
 
 @media (min-width: 992px) {
@@ -39,4 +41,26 @@ footer {
     width: 100%;
     height: 60px;
     background-color: #000000; 
+}
+
+#noArticles {
+    margin-top: 10%;
+    font-size: 30px;
+    background-color: #16a085;
+    color: white;
+    padding: 100px;
+    text-align: center;
+} 
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.nav-link {
+    font-size: 15px;
+}
+
+#articles {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
