@@ -1,0 +1,19 @@
+{
+  "name": "mongoscraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tictac0723/MongoScraping.git"
+  },
+  "author": "Taylor Clark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tictac0723/MongoScraping/issues"
+  },
+  "homepage": "https://github.com/Tictac0723/MongoScraping#readme"
+}
