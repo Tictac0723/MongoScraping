@@ -1,11 +1,56 @@
+{{!-- Print Each Article Out  --}}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default" id="articles">
+            <div class="panel-panel default">
+                <ul class="list-group">
+                    {{#each Article}} {{log result}}
+                    <div class='panel panel-default' id='articles'>
+                        <div class='panel-heading'>
+                            <h3 class='panel-title'> 
+                                {{this.title}} 
+                            </h3>
+                            <div class='panel-body'> 
+                                {{this.link}}
+                            </div>
+                            <button type='button' class='favorite' data-id={{this._id}} class='btn btn-default'>
+                                Add to Favorites
+                            </button>
+                        </div>
+                    </div> 
+                    {{/each}}
+                </ul>
+            </div>
         </div>
     </div>
 </div>
+{{!-- 
+PRINT SAVED ARTICLES WITH NOTE BUTTON --}}
 
-<script>
-
-</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+                {{#each result}} {{#if this.favorited}}
+                    <div class='panel panel-default' id='articles'>
+                        <div class='panel-heading'>
+                            <h3 class='panel-title'> 
+                                {{this.title}} 
+                            </h3>
+                            <div class='panel-body'> 
+                                {{this.link}}
+                            </div>
+                            <button type='button' class='notes' data-id={{this._id}} class='btn btn-default'>
+                                Notes
+                            </button>
+                            <button type='button' class='delete' data-id={{this._id}} class='btn btn-default'>
+                                Delete
+                            </button>
+                        </div>
+                    </div> 
+                    {{/if}}{{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
