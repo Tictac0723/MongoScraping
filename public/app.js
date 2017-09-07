@@ -19,7 +19,7 @@ $(document).on("click", ".favorite", function () {
         // Log the response
         console.log(data);
         // Empty the no articles section
-        $("#noArticles").empty();
-        $("#articles").empty();
+        $("#noArticles").hide();
+        $("#articles").hide();
       });
 });
