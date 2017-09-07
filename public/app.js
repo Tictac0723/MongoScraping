@@ -1,7 +1,9 @@
-$("document").on("click", ".favorite", function () { 
+$(document).on("click", ".favorite", function () { 
     // console.log($(this).attr("data-id"));
     var thisId = $(this).attr("data-id");
     console.log(thisId);
+    
+
     
       // Run a POST request to change the note, using what's entered in the inputs
       $.ajax({
