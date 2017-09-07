@@ -115,10 +115,10 @@ app.get("/articles", function(req, res) {
     // Or send the doc to the browser as a json object
     else {
       res.render("index", handlebarsObject);
-      console.log(handlebarsObject)
     }
   });
 });
+
 
 app.get("/articles/:id", function(req, res) {
     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
@@ -167,6 +167,29 @@ app.get("/articles/:id", function(req, res) {
       }
     });
   });
+
+  //save a news article
+app.post('/api/favorites/:id', function(req, res){
+    Article.where({"_id":req.params.id}).update({$set: {favorite: true}})
+        .exec(function (error, news){
+            if (error){
+                console.log(error);
+            }else{
+                res.json(news);
+            }
+        });
+});
+
+//get saved articles from the DB
+app.get("/favorites", function(req, res){
+    Article.find({favorite: true}, function(error, doc){
+        if(error){
+            console.log(error);
+        } else {
+            res.render("index", {Article: doc});
+        }
+        });
+    });
   
 
 // Listen on port 3000

@@ -1,25 +1,23 @@
-var favoriteIds = [];
-
-$("#scrape").on("click", function() {
-    $("#noArticles").hide();
-    $.getJSON("/articles", function(data) {
-        console.log(data);
-        // For each one
-        for (var i = 0; i < data.length; i++) {
-          $("#scrapedArticles").append("<div class='panel panel-default' id='articles'><div class='panel-heading'><h3 class='panel-title'>" + data[i].title + "<div class='panel-body'>" + data[i].link + "</div> <button type='button' class='favorite' data-id='" + data[i]._id + "' class='btn btn-default' onclick='favoriteAdded()'>Add to Favorites</button></p></div></div>");
+$("document").on("click", ".favorite", function () { 
+    // console.log($(this).attr("data-id"));
+    var thisId = $(this).attr("data-id");
+    console.log(thisId);
+    
+      // Run a POST request to change the note, using what's entered in the inputs
+      $.ajax({
+        method: "POST",
+        url: "/api/favorites/" + thisId,
+        data: {
+          // Value taken from title input
+          title: this.title,
+          // Value taken from note textarea
+          body: this.link
         }
-        
-
-        });
+      }).done(function(data) {
+        // Log the response
+        console.log(data);
+        // Empty the no articles section
+        $("#noArticles").empty();
+        $("#articles").empty();
+      });
 });
-
-function favoriteAdded() {
-   var articleId = $(this).attr("data-id");
-   $(favoriteIds).push(articleId);
-   console.log(favoriteIds);
-    alert("This article has been added to your favorites!");
-
-};
-
-
-

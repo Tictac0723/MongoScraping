@@ -1,43 +1,53 @@
-{{!-- Print Each Article Out  --}}
-<div class="container">
+{{!-- No Articles Yet --}}
     <div class="row">
         <div class="col-md-12">
-            <div class="panel-panel default">
-                <ul class="list-group">
-                    {{#each Article}} {{log result}}
-                    <div class='panel panel-default' id='articles'>
-                        <div class='panel-heading'>
-                            <h3 class='panel-title'> 
-                                {{this.title}} 
-                            </h3>
-                            <div class='panel-body'> 
-                                {{this.link}}
-                            </div>
-                            <button type='button' class='favorite' data-id={{this._id}} class='btn btn-default'>
-                                Add to Favorites
-                            </button>
-                        </div>
-                    </div> 
-                    {{/each}}
-                </ul>
+            <div class="panel panel-default" id="noArticles">
+                <div class="panel-body">
+                    You don't have any articles yet!
+                </div>
             </div>
         </div>
     </div>
-</div>
-{{!-- 
-PRINT SAVED ARTICLES WITH NOTE BUTTON --}}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="list-group">
-                {{#each result}} {{#if this.favorited}}
+    {{!-- Print Each Article Out --}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-panel default">
+                    <ul class="list-group">
+                        {{#each Article}}
+                        <div class='panel panel-default' id='articles'>
+                            <div class='panel-heading'>
+                                <h3 class='panel-title'>
+                                    {{this.title}}
+                                </h3>
+                                <div class='panel-body'>
+                                    {{this.link}}
+                                </div>
+                                <button type='button' class='favorite' data-id={{this._id}} class='btn btn-default'>
+                                Add to Favorites
+                            </button>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- PRINT SAVED ARTICLES WITH NOTE BUTTON --}}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-group">
+                    {{#each Article}} {{#if this.favorite}}
                     <div class='panel panel-default' id='articles'>
                         <div class='panel-heading'>
-                            <h3 class='panel-title'> 
-                                {{this.title}} 
+                            <h3 class='panel-title'>
+                                {{this.title}}
                             </h3>
-                            <div class='panel-body'> 
+                            <div class='panel-body'>
                                 {{this.link}}
                             </div>
                             <button type='button' class='notes' data-id={{this._id}} class='btn btn-default'>
@@ -47,7 +57,7 @@ PRINT SAVED ARTICLES WITH NOTE BUTTON --}}
                                 Delete
                             </button>
                         </div>
-                    </div> 
+                    </div>
                     {{/if}}{{/each}}
                 </ul>
             </div>
