@@ -23,3 +23,7 @@ $(document).on("click", ".favorite", function () {
         $("#articles").hide();
       });
 });
+
+$("#note").on("click", function () {
+    $("#myModal").modal('show');
+});

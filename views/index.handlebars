@@ -35,32 +35,3 @@
             </div>
         </div>
     </div>
-    {{!-- PRINT SAVED ARTICLES WITH NOTE BUTTON --}}
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="list-group">
-                    {{#each Article}} {{#if this.favorite}}
-                    <div class='panel panel-default' id='articles'>
-                        <div class='panel-heading'>
-                            <h3 class='panel-title'>
-                                {{this.title}}
-                            </h3>
-                            <div class='panel-body'>
-                                {{this.link}}
-                            </div>
-                            <button type='button' class='notes' data-id={{this._id}} class='btn btn-default'>
-                                Notes
-                            </button>
-                            <button type='button' class='delete' data-id={{this._id}} class='btn btn-default'>
-                                Delete
-                            </button>
-                        </div>
-                    </div>
-                    {{/if}}{{/each}}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>

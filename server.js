@@ -186,7 +186,7 @@ app.get("/favorites", function(req, res){
         if(error){
             console.log(error);
         } else {
-            res.render("index", {Article: doc});
+            res.render("favorites", {Article: doc});
         }
         });
     });

@@ -1,0 +1,45 @@
+ {{!-- PRINT SAVED ARTICLES WITH NOTE BUTTON --}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+                {{#each Article}} {{#if this.favorite}}
+                <div class='panel panel-default' id='articles'>
+                    <div class='panel-heading'>
+                        <h3 class='panel-title'>
+                            {{this.title}}
+                        </h3>
+                        <div class='panel-body'>
+                            {{this.link}}
+                        </div>
+                        <button id="note" type='button' class='notes' data-id={{this._id}} class='btn btn-default'>
+                                Notes
+                            </button>
+                        <button id="delete" type='button' class='delete' data-id={{this._id}} class='btn btn-default'>
+                                Delete
+                </button>
+                    </div>
+                </div>
+        </div>
+    </div>
+    {{/if}}{{/each}}
+    </ul>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><strong>Notes</strong></h2>
+            </div>
+            <div class="modal-body">
+                <input class="form-control input-lg" id="inputlg" type="text">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
